@@ -12,11 +12,15 @@ Console.WriteLine("Gatunek drzewa:");
 
 var tree = new HightInFile("dąb");
 
-//species.HightAdded += SpeciesHightAdded;
+tree.HightAdded += TreeHightAdded;
+
+static void TreeHightAdded(object sender, EventArgs args)
+{
+    Console.WriteLine("Dodano wysokość. Podaj kolejną wartość.");
+}
+
 
 Console.WriteLine(tree.Species);
-
-//var tree = new HightInFile();
 
 //var input = Console.ReadLine();
 //if (input == "sosna"|| input =="dąb"|| input == "brzoza")
