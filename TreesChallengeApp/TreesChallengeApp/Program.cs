@@ -58,3 +58,17 @@ while (true)
 }
 
 //Console.WriteLine(species);
+
+var statistics = ((HightInFile)tree).GetStatistics();
+{ 
+    Console.WriteLine("--------------------------------------------------");
+    Console.WriteLine();
+    Console.WriteLine(tree.Species);
+    Console.WriteLine();
+    Console.WriteLine("Statystyki:");
+    Console.WriteLine($"Min: {statistics.Min}");
+    Console.WriteLine($"Max: {statistics.Max}");
+    Console.WriteLine($"Average: {statistics.Average:N2}");
+    Console.WriteLine();
+    Console.WriteLine($"Średni wiek drzew w drzewostanie:{statistics.AverageAge}");
+}

@@ -48,18 +48,67 @@ namespace TreesChallengeApp
         }
 
         public override void AddHight(float hight)
-        { 
-            this.AddHight(hight);
+        {
+            double value = hight;
+            this.AddHight(value); ;
         }
 
         public override void AddHight(int hight)
         {
-            this.AddHight(hight);
+            double value = hight;   
+            this.AddHight(value);
         }
 
         public override void AddHight(char hight)
         {
             throw new NotImplementedException();
+        }
+
+        //public override Statistics GetStatistics()
+        //{
+        //    var hightFromFile = this.ReadHightFromFile();
+        //    var result = this.CountStatistics(hightFromFile);
+        //    return result;
+        //}
+
+
+        private List<double> ReadHightFromFile()
+        {
+            var hight = new List<double>();
+
+            if (File.Exists($"{fileName}"))
+            {
+                using (var reader = File.OpenText($"{fileName}"))
+                {
+                    var line = reader.ReadLine();
+                    while (line != null)
+                    {
+                        var h = double.Parse(line);
+                        hight.Add(h);
+                        line = reader.ReadLine();
+                    }
+                }
+            }
+            return hight;
+        }
+
+        private Statistics CountStatistics(List<double> hight)
+        {
+            var statistics = new Statistics();
+
+            foreach (var h in hight)
+            {
+                statistics.AddHight(h);
+            }
+
+            return statistics;
+        }
+
+        public override Statistics GetStatistics()
+        {
+            var hightFromFile = this.ReadHightFromFile();
+            var result = this.CountStatistics(hightFromFile);
+            return result;
         }
     }
 }

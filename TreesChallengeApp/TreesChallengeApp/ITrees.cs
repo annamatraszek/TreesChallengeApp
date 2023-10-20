@@ -16,6 +16,6 @@ namespace TreesChallengeApp
 
         event HightAddedDelegate HightAdded;
 
-        //Statistics GetStatistics();
+        Statistics GetStatistics();
     }
 }
