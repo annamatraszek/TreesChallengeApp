@@ -10,37 +10,24 @@ Console.WriteLine("=============================================================
 Console.WriteLine();
 Console.WriteLine("Gatunek drzewa:");
 
-var tree = new HightInFile("dąb");
+var input1 = Console.ReadLine();
+var tree = new HightInFile(input1);
+
+//var tree = new HightInFile("sosna zwyczajna");
 
 tree.HightAdded += TreeHightAdded;
 
 static void TreeHightAdded(object sender, EventArgs args)
 {
-    Console.WriteLine("Dodano wysokość. Podaj kolejną wartość.");
+    Console.WriteLine("Dodano wysokość.");
+    Console.WriteLine("Podaj kolejną wartość lub wpisz 'q', aby zakończyć.");
 }
 
-
-Console.WriteLine(tree.Species);
-
-//var input = Console.ReadLine();
-//if (input == "sosna"|| input =="dąb"|| input == "brzoza")
-//{
-//    Console.WriteLine(input);
-//}
-
-//try
-//{
-//    species.AddSpecies(input);
-//}
-//catch (Exception e)
-//{
-//    Console.WriteLine($"exception catched: {e.Message}");
-//}
-
+Console.WriteLine("Podaj wysokość drzewa: ");
 
 while (true)
 {
-    Console.WriteLine("Podaj wysokość drzewa: ");
+    //Console.WriteLine("Podaj wysokość drzewa: ");
     var input = Console.ReadLine();
     if (input == "q")
     {
@@ -57,18 +44,22 @@ while (true)
     }
 }
 
-//Console.WriteLine(species);
-
-var statistics = ((HightInFile)tree).GetStatistics();
-{ 
+var statistics = tree.GetStatistics();
+{
     Console.WriteLine("--------------------------------------------------");
     Console.WriteLine();
-    Console.WriteLine(tree.Species);
+    // Console.WriteLine(tree.Species);
+    Console.WriteLine(input1);
     Console.WriteLine();
     Console.WriteLine("Statystyki:");
+    Console.WriteLine($"Count: {statistics.Count}");
     Console.WriteLine($"Min: {statistics.Min}");
     Console.WriteLine($"Max: {statistics.Max}");
-    Console.WriteLine($"Average: {statistics.Average:N2}");
+    Console.WriteLine($"Average: {statistics.Average}");
     Console.WriteLine();
-    Console.WriteLine($"Średni wiek drzew w drzewostanie:{statistics.AverageAge}");
+    Console.WriteLine($"Średnia wysokość drzew: " + ($"{statistics.Average:N0} ") + "m");
+    Console.WriteLine();
+    Console.WriteLine($"Średni wiek drzew w drzewostanie: " + ($"{statistics.AverageAge} "));
 }
+
+

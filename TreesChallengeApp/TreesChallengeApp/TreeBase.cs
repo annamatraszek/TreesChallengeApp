@@ -26,7 +26,7 @@ namespace TreesChallengeApp
 
         public abstract void AddHight(char hight);
 
-        public abstract Statistics GetStatistics()
+        public abstract Statistics GetStatistics();
         
     }
 }

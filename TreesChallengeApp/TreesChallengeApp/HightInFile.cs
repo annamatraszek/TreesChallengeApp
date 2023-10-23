@@ -64,12 +64,12 @@ namespace TreesChallengeApp
             throw new NotImplementedException();
         }
 
-        //public override Statistics GetStatistics()
-        //{
-        //    var hightFromFile = this.ReadHightFromFile();
-        //    var result = this.CountStatistics(hightFromFile);
-        //    return result;
-        //}
+        public override Statistics GetStatistics()
+        {
+            var hightFromFile = this.ReadHightFromFile();
+            var result = this.CountStatistics(hightFromFile);
+            return result;
+        }
 
 
         private List<double> ReadHightFromFile()
@@ -104,11 +104,6 @@ namespace TreesChallengeApp
             return statistics;
         }
 
-        public override Statistics GetStatistics()
-        {
-            var hightFromFile = this.ReadHightFromFile();
-            var result = this.CountStatistics(hightFromFile);
-            return result;
-        }
+      
     }
 }
