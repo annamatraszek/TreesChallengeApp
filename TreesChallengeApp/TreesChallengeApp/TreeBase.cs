@@ -1,21 +1,22 @@
 ﻿
 namespace TreesChallengeApp
 {
-    public abstract class TreeBase : ITrees
+    public abstract class TreeBase : Tree,  ITrees
     {
         public delegate void HightAddedDelegate(object sender, EventArgs args);
 
         public abstract event HightAddedDelegate HightAdded;
 
-        public TreeBase(string speciesName)
-        {
-            this.Species = speciesName;
+        public TreeBase(string parcelNumber, string speciesName)
+            : base (parcelNumber, speciesName)
+        { 
+
         }
-        
 
-        public string Species { get; private set; }
+       // public string Species { get; private set; }
 
-       
+       // public string ObjectId { get; private set; }
+
         public abstract void AddHight(int hight);
 
         public abstract void AddHight(string hight);

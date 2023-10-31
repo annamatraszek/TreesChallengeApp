@@ -1,43 +1,35 @@
 ﻿
-using System.Diagnostics;
 
-namespace TreesChallengeApp 
+namespace TreesChallengeApp
 {
-    public class HightInFile : TreeBase
+    public class HightInParcel : TreeBase
     {
         private const string fileName = "hight.txt";
 
         public override event HightAddedDelegate HightAdded;
 
-        private string treeObject;
+        private string treeInParcel;
 
-        public HightInFile(string parcelNumber, string species) 
+        public HightInParcel(string parcelNumber, string species)
             : base(parcelNumber, species)
         {
-            treeObject = $"{parcelNumber}_{species}_{fileName}";
+            treeInParcel = $"dz_{parcelNumber}_{fileName}";
         }
 
-
-        public override void AddHight(double hight)
+        public HightInParcel(string parcelNumber)
+            : base(parcelNumber, "-")
         {
-            if (hight > 0 && hight <= 60)
-            {
-                using (var writer = File.AppendText(treeObject))
-                using (var writer2 = File.AppendText($"fullObject.txt"))
-                {
-                    writer.WriteLine(hight);
-                    writer2.WriteLine($"{Parcel} - {Species} - {hight}     -  {DateTime.UtcNow}");
-                }
+            //this.ParcelNumb = parcelNumber;
+            treeInParcel = $"dz_{parcelNumber}_{fileName}";
+        }
 
-                if (HightAdded != null)
-                {
-                    HightAdded(this, new EventArgs());
-                }
-            }
-            else
-            {
-                throw new Exception("Wartość poza dopuszczalnym zakresem!");
-            }
+        //string ParcelNumb { get; set; }
+
+
+        public override void AddHight(int hight)
+        {
+            double value = hight;
+            this.AddHight(value);
         }
 
         public override void AddHight(string hight)
@@ -58,10 +50,26 @@ namespace TreesChallengeApp
             this.AddHight(value); ;
         }
 
-        public override void AddHight(int hight)
+        public override void AddHight(double hight)
         {
-            double value = hight;   
-            this.AddHight(value);
+            if (hight > 0 && hight <= 60)
+            {
+                using (var writer = File.AppendText(treeInParcel))
+                using (var writer2 = File.AppendText($"fullObject.txt"))
+                {
+                    writer.WriteLine(hight);
+                    writer2.WriteLine($"{Parcel} - {Species} - {hight}     -  {DateTime.UtcNow}");
+                }
+
+                if (HightAdded != null)
+                {
+                    HightAdded(this, new EventArgs());
+                }
+            }
+            else
+            {
+                throw new Exception("Wartość poza dopuszczalnym zakresem!");
+            }
         }
 
         public override void AddHight(char hight)
@@ -76,14 +84,13 @@ namespace TreesChallengeApp
             return result;
         }
 
-
         private List<double> ReadHightFromFile()
         {
             var hight = new List<double>();
 
-            if (File.Exists($"{treeObject}"))
+            if (File.Exists($"{treeInParcel}"))
             {
-                using (var reader = File.OpenText($"{treeObject}"))
+                using (var reader = File.OpenText($"{treeInParcel}"))
                 {
                     var line = reader.ReadLine();
                     while (line != null)
@@ -108,5 +115,6 @@ namespace TreesChallengeApp
 
             return statistics;
         }
-     }
+
+    }
 }

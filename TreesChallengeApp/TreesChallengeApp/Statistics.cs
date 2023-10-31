@@ -47,9 +47,6 @@ namespace TreesChallengeApp
                 }
             }
         }
-
-
-
         public Statistics()
         {
             this.Count = 0;

@@ -5,8 +5,8 @@ namespace TreesChallengeApp
 {
     public interface ITrees
     {
-     
-        public string Species { get;}
+        string Parcel { get;}
+        string Species { get;}
     
         void AddHight(int hight);
         void AddHight(string hight);
