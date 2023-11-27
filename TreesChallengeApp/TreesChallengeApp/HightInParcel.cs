@@ -9,7 +9,11 @@ namespace TreesChallengeApp
         public override event HightAddedDelegate HightAdded;
 
         private string treeInParcel;
+         
 
+        //public void AddSpeciesTree();
+        public List<string> speciesTrees = new List<string>();
+        
         public HightInParcel(string parcelNumber, string species)
             : base(parcelNumber, species)
         {
@@ -19,11 +23,47 @@ namespace TreesChallengeApp
         public HightInParcel(string parcelNumber)
             : base(parcelNumber, "-")
         {
-            //this.ParcelNumb = parcelNumber;
+ 
             treeInParcel = $"dz_{parcelNumber}_{fileName}";
         }
+        
 
-        //string ParcelNumb { get; set; }
+        public void AddToListSpeciesTree()
+        {
+            this.speciesTrees.Add(Species);
+        }
+
+       
+
+
+
+        //private List<string> ShowListSpeciesTree()
+        //{
+        //    var spec = new List<string>(speciesTrees);
+        //    string result = null;
+        //    foreach (var s in spec)
+        //    {
+        //        result += s;
+        //        string t = result;
+        //    }
+                 
+        //    return result;
+        //}
+
+        //var t = new HightInParcel.resultList; 
+
+        //public HightInParcel ShowListSpeciesTrees(List<string> speciesTrees)
+        //{
+        //    var spec = new List<string>();
+        //    //var result = this.specTrees(speciesTrees);
+        //    //string result = null;
+        //    foreach (var spec in speciesTrees)
+        //    {
+        //        Console.WriteLine(spec);
+        //    }
+
+        //this.speciesTrees = List<string> speciesTrees;
+        //return specTrees;
 
 
         public override void AddHight(int hight)
@@ -116,5 +156,6 @@ namespace TreesChallengeApp
             return statistics;
         }
 
+        
     }
 }

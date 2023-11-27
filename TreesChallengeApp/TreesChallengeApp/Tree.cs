@@ -8,11 +8,17 @@ namespace TreesChallengeApp
             this.Parcel = parcelNumber;
             this.Species = species;
         }
-       //public Tree(string parcelNumber)
-       // {
-       //     this.Parcel = parcelNumber;
-       //     //this.Species = "-";
-       // } 
+
+        //public Tree(string species)
+        //{
+        //    this.Species = species;
+        //}
+
+        //public Tree(string parcelNumber)
+        // {
+        //     this.Parcel = parcelNumber;
+        //     //this.Species = "-";
+        // } 
 
         public string Parcel { get; private set; }
         public string Species { get; private set; }

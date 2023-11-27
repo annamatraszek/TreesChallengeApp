@@ -1,6 +1,7 @@
 ﻿
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using System.Text;
 using TreesChallengeApp;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -116,6 +117,8 @@ static void TreesAgeOnParcel()
 
     var parc = new HightInParcel(parcelNumber);
 
+    //var spec = new HightInParcel(species);
+
     //private List<string> species = new List<string>();
     while (true)
     {
@@ -123,13 +126,23 @@ static void TreesAgeOnParcel()
         string species = Console.ReadLine();
 
         var tree = new HightInParcel(parcelNumber, species);
+
+
+        //var spec = new HightInParcel(species);
+
         tree.HightAdded += TreeHightAdded;
+
+        tree.AddToListSpeciesTree();
+        
+
+        //tree.ShowListSpeciesTree();
+        //tree.ShowListSpeciesTree();
+        //{
 
         if (species == "q")
         {
             break;
         }
-       
 
         while (true)
         {
@@ -140,7 +153,6 @@ static void TreesAgeOnParcel()
             {
                 break;
             }
-
             try
             {
                 tree.AddHight(input);
@@ -152,18 +164,32 @@ static void TreesAgeOnParcel()
         }
 
     }
+   
 
-    
+    Console.WriteLine("--------------------------------------------------");
+    Console.WriteLine();
+    Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki: ");
+
+
+
+    //Console.WriteLine(((HightInParcel)parc).ShowListSpeciesTree());
+
+  
 
     var statistics = parc.GetStatistics();
     {
-        Console.WriteLine("--------------------------------------------------");
-        Console.WriteLine();
-        //Console.WriteLine(parcelNumber);
-        Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki: ");
+        //Console.WriteLine("--------------------------------------------------");
+        //Console.WriteLine();
+        ////Console.WriteLine(parcelNumber);
+        //Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki: ");
 
-        
-        Console.WriteLine();
+
+        //foreach (var spec in speciesTree) 
+        //{
+        //    Console.WriteLine(spec);
+        //}
+
+        //Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("Statystyki:");
         Console.WriteLine($"Liczba zmierzonych drzew: {statistics.Count}");
