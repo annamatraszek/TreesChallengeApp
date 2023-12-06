@@ -12,6 +12,14 @@ namespace TreesChallengeApp
         { 
 
         }
+
+        public TreeBase(string parcelNumber)
+            : base (parcelNumber, "-")
+        {
+
+        }
+
+       
      
 
         // public string Species { get; private set; }

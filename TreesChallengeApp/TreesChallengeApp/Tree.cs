@@ -9,6 +9,10 @@ namespace TreesChallengeApp
             this.Species = species;
         }
 
+        public Tree(string species)
+        {
+            this.Species = species;
+        }
         //public Tree(string species)
         //{
         //    this.Species = species;
@@ -20,8 +24,8 @@ namespace TreesChallengeApp
         //     //this.Species = "-";
         // } 
 
-        public string Parcel { get; private set; }
-        public string Species { get; private set; }
+        public string Parcel { get; set; }
+        public string Species { get; set; }
 
     }
 }

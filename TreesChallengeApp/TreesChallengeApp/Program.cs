@@ -1,6 +1,7 @@
 ﻿
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using TreesChallengeApp;
 using static System.Net.Mime.MediaTypeNames;
@@ -117,27 +118,22 @@ static void TreesAgeOnParcel()
 
     var parc = new HightInParcel(parcelNumber);
 
-    //var spec = new HightInParcel(species);
-
-    //private List<string> species = new List<string>();
     while (true)
     {
         Console.WriteLine("Gatunek drzewa:");
         string species = Console.ReadLine();
 
+        List<string> speciesNames = new List<string>();
+
+        //public void AddToListSpeciesName();
+        {
+            //string species = speciesN;
+            speciesNames.Add(species);
+        }
+
         var tree = new HightInParcel(parcelNumber, species);
 
-
-        //var spec = new HightInParcel(species);
-
         tree.HightAdded += TreeHightAdded;
-
-        tree.AddToListSpeciesTree();
-        
-
-        //tree.ShowListSpeciesTree();
-        //tree.ShowListSpeciesTree();
-        //{
 
         if (species == "q")
         {
@@ -164,32 +160,48 @@ static void TreesAgeOnParcel()
         }
 
     }
-   
 
     Console.WriteLine("--------------------------------------------------");
     Console.WriteLine();
-    Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki: ");
+    Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki:  ");
 
 
 
-    //Console.WriteLine(((HightInParcel)parc).ShowListSpeciesTree());
+    //var speciesNamesT = new List<string> ShowListSpeciesTree();
 
-  
+    //var speciesNamesT = parc.ShowListSpeciesTree();
+    //{
+    //    var speciesNames = new List<string>(speciesNamesT);
+
+    //    foreach (var specName in speciesNames)
+    //    {
+    //        Console.WriteLine($"{specName}");
+    //    }
+
+    //}
+
+    // var speciesNamesT = new List<string>(HightInParcel.speciesNames);   
+
+    //List<string> speciesNamesT = new List<string> ();
+
+
+    List<string> ShowListSpeciesTree(List<string> speciesNames)
+    {
+        var spec = new List<string>(speciesNames);
+
+        string result = null;
+        foreach (var s in spec)
+        {
+            result += s;
+            string t = result;
+        }
+        return spec;
+
+        Console.WriteLine($"{spec}");
+    }
 
     var statistics = parc.GetStatistics();
     {
-        //Console.WriteLine("--------------------------------------------------");
-        //Console.WriteLine();
-        ////Console.WriteLine(parcelNumber);
-        //Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki: ");
-
-
-        //foreach (var spec in speciesTree) 
-        //{
-        //    Console.WriteLine(spec);
-        //}
-
-        //Console.WriteLine();
         Console.WriteLine();
         Console.WriteLine("Statystyki:");
         Console.WriteLine($"Liczba zmierzonych drzew: {statistics.Count}");
@@ -203,75 +215,10 @@ static void TreesAgeOnParcel()
         Console.WriteLine("--------------------------------------------------");
         Console.WriteLine();
     }
-
-
 }
-
 
 static void TreeHightAdded(object sender, EventArgs args)
 {
     Console.WriteLine("Dodano wysokość.");
     Console.WriteLine("Podaj kolejną wartość lub wpisz 'q', aby zakończyć.");
 }
-
-
-
-
-
-
-
-//Console.WriteLine("Podaj numer działki:");
-
-//string parcelNumber = Console.ReadLine();
-
-//Console.WriteLine("Gatunek drzewa:");
-
-//string species = Console.ReadLine();
-
-//var tree = new HightInFile(parcelNumber, species);
-
-//tree.HightAdded += TreeHightAdded;
-
-//static void TreeHightAdded(object sender, EventArgs args)
-//{
-//    Console.WriteLine("Dodano wysokość.");
-//    Console.WriteLine("Podaj kolejną wartość lub wpisz 'q', aby zakończyć.");
-//}
-
-//Console.WriteLine("Podaj wysokość drzewa: ");
-
-//while (true)
-//{
-//    var input = Console.ReadLine();
-//    if (input == "q")
-//    {
-//        break;
-//    }
-
-//    try
-//    {
-//        tree.AddHight(input);
-//    }
-//    catch (Exception e)
-//    {
-//        Console.WriteLine($"Exception catched: {e.Message}");
-//    }
-//}
-
-//var statistics = tree.GetStatistics();
-//{
-//    Console.WriteLine("--------------------------------------------------");
-//    Console.WriteLine();
-//    Console.WriteLine(tree.Species);
-//    Console.WriteLine(species);
-//    Console.WriteLine();
-//    Console.WriteLine("Statystyki:");
-//    Console.WriteLine($"Count: {statistics.Count}");
-//    Console.WriteLine($"Min: {statistics.Min}");
-//    Console.WriteLine($"Max: {statistics.Max}");
-//    Console.WriteLine($"Average: {statistics.Average}");
-//    Console.WriteLine();
-//    Console.WriteLine($"Średnia wysokość drzew: " + ($"{statistics.Average:N0} ") + "m");
-//    Console.WriteLine();
-//    Console.WriteLine($"Średni wiek drzew w drzewostanie: " + ($"{statistics.AverageAge} "));
-//}

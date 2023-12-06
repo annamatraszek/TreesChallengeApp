@@ -10,10 +10,13 @@ namespace TreesChallengeApp
 
         private string treeInParcel;
          
-
         //public void AddSpeciesTree();
-        public List<string> speciesTrees = new List<string>();
-        
+        //public List<string> speciesTrees = new List<string>();
+
+        //public List<string> speciesNames = new List<string>();
+
+        //var speciesNamesT = new List<string>(speciesNames); 
+
         public HightInParcel(string parcelNumber, string species)
             : base(parcelNumber, species)
         {
@@ -28,14 +31,31 @@ namespace TreesChallengeApp
         }
         
 
-        public void AddToListSpeciesTree()
+
+       //public void AddToListSpeciesTree()
+       //{
+        //    this.speciesTrees.Add(Species);
+       // }
+
+       // public void AddToListSpeciesName(string speciesN)
+       // {
+       //     string species = speciesN;
+       //     this.speciesNames.Add(species);
+       // }
+
+
+        public List<string> ShowListSpeciesTree()
         {
-            this.speciesTrees.Add(Species);
+            var spec = new List<string>(speciesNames);
+
+            string result = null;
+            foreach (var s in spec)
+            {
+                result += s;
+                string t = result;
+            }
+            return spec;
         }
-
-       
-
-
 
         //private List<string> ShowListSpeciesTree()
         //{
@@ -46,7 +66,7 @@ namespace TreesChallengeApp
         //        result += s;
         //        string t = result;
         //    }
-                 
+
         //    return result;
         //}
 
