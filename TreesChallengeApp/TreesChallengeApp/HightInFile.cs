@@ -108,7 +108,5 @@ namespace TreesChallengeApp
 
             return statistics;
         }
-
-   
     }
 }

@@ -8,23 +8,19 @@ namespace TreesChallengeApp
         public abstract event HightAddedDelegate HightAdded;
 
         public TreeBase(string parcelNumber, string species)
-            : base (parcelNumber, species)
+            : base(parcelNumber, species)
         { 
 
         }
 
         public TreeBase(string parcelNumber)
-            : base (parcelNumber, "-")
+            : base(parcelNumber, "-")
         {
 
         }
 
        
-     
 
-        // public string Species { get; private set; }
-
-        // public string ObjectId { get; private set; }
 
         public abstract void AddHight(int hight);
 
@@ -39,6 +35,8 @@ namespace TreesChallengeApp
         //public abstract void ShowListSpeciesTrees();
 
         public abstract Statistics GetStatistics();
+
         
+
     }
 }

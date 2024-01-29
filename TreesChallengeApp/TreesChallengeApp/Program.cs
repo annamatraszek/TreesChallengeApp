@@ -6,6 +6,7 @@ using System.Text;
 using TreesChallengeApp;
 using static System.Net.Mime.MediaTypeNames;
 
+
 Console.WriteLine("================================================================================");
 //Console.WriteLine();
 WriteLine(ConsoleColor.DarkCyan, "Witamy w programie do szacowania wieku drzewostanu.");
@@ -69,8 +70,6 @@ static void SpeciesAgeOnParcel()
 
     tree.HightAdded += TreeHightAdded;
 
-    //Console.WriteLine("Podaj wysokość drzewa: ");
-
     while (true)
     {
         Console.WriteLine("Podaj wysokość drzewa: ");
@@ -94,13 +93,13 @@ static void SpeciesAgeOnParcel()
     {
         Console.WriteLine("--------------------------------------------------");
         Console.WriteLine();
-        Console.WriteLine(tree.Species);
-        //Console.WriteLine(species);
+        Console.WriteLine($"Działka nr: {parcelNumber} ");
+        Console.WriteLine($"Gtunek drzewa: {tree.Species} ");
         Console.WriteLine();
         Console.WriteLine("Statystyki:");
-        Console.WriteLine($"Count: {statistics.Count}");
-        Console.WriteLine($"Min: {statistics.Min}");
-        Console.WriteLine($"Max: {statistics.Max}");
+        Console.WriteLine($"Liczba zmierzonych drzew: {statistics.Count}");
+        Console.WriteLine($"Hight Min: {statistics.Min}");
+        Console.WriteLine($"Hight Max: {statistics.Max}");
         Console.WriteLine($"Average: {statistics.Average}");
         Console.WriteLine();
         Console.WriteLine($"Średnia wysokość drzew: " + ($"{statistics.Average:N0} ") + "m");
@@ -121,16 +120,16 @@ static void TreesAgeOnParcel()
     while (true)
     {
         Console.WriteLine("Gatunek drzewa:");
+
         string species = Console.ReadLine();
 
-        List<string> speciesNames = new List<string>();
+        var spec = new Tree(species);
 
-        //public void AddToListSpeciesName();
-        {
-            //string species = speciesN;
-            speciesNames.Add(species);
-        }
+        //var speciesOnParcel = spec.SpeciesOnParcel;
 
+        spec.AddSpecies(species);
+
+        
         var tree = new HightInParcel(parcelNumber, species);
 
         tree.HightAdded += TreeHightAdded;
@@ -165,40 +164,9 @@ static void TreesAgeOnParcel()
     Console.WriteLine();
     Console.WriteLine($"Na działce nr {parcelNumber} wystepują gatunki:  ");
 
-
-
-    //var speciesNamesT = new List<string> ShowListSpeciesTree();
-
-    //var speciesNamesT = parc.ShowListSpeciesTree();
-    //{
-    //    var speciesNames = new List<string>(speciesNamesT);
-
-    //    foreach (var specName in speciesNames)
-    //    {
-    //        Console.WriteLine($"{specName}");
-    //    }
-
-    //}
-
-    // var speciesNamesT = new List<string>(HightInParcel.speciesNames);   
-
-    //List<string> speciesNamesT = new List<string> ();
-
-
-    List<string> ShowListSpeciesTree(List<string> speciesNames)
-    {
-        var spec = new List<string>(speciesNames);
-
-        string result = null;
-        foreach (var s in spec)
-        {
-            result += s;
-            string t = result;
-        }
-        return spec;
-
-        Console.WriteLine($"{spec}");
-    }
+    var speciesList = ;
+    Console.WriteLine(speciesList);
+    
 
     var statistics = parc.GetStatistics();
     {
@@ -220,5 +188,12 @@ static void TreesAgeOnParcel()
 static void TreeHightAdded(object sender, EventArgs args)
 {
     Console.WriteLine("Dodano wysokość.");
-    Console.WriteLine("Podaj kolejną wartość lub wpisz 'q', aby zakończyć.");
+    Console.WriteLine("Podaj wysokość kolejnego drzewa lub wpisz 'q', aby zakończyć i obliczyć stystyki.");
 }
+//static void TreeHightAdded2(object sender, EventArgs args)
+//{
+//    Console.WriteLine("Dodano wysokość.");
+//    Console.WriteLine("Podaj wysokość kolejnego drzewa lub wpisz 'q', aby dodać kolejny gatunek." +
+//        "Wpisz 'qq' aby zakończyć i obliczyć stystyki.");
+//}
+
